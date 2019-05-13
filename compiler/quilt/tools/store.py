@@ -498,6 +498,13 @@ class PackageStore(object):
         self._check_hashes(hash_list)
         return self.object_path(hash_list[0])
 
+    def load_file(self, hash_list):
+        """
+        Returns the contents of a non-dataset file
+        """
+        with open(self.get_file(hash_list), 'rb') as f:
+            return f.read()
+
     def save_file(self, srcfile):
         """
         Save a (raw) file to the store.

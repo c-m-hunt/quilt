@@ -76,7 +76,7 @@ class DataNode(Node):
                 elif self._target() == TargetType.NUMPY:
                     self.__cached_data = self._store.load_numpy(self._hashes)
                 else:
-                    self.__cached_data = self._store.get_file(self._hashes)
+                    self.__cached_data = self._store.load_file(self._hashes)
             return self.__cached_data
 
 
